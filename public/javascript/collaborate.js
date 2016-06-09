@@ -45,7 +45,7 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
     // Set up authentication 
     $authProvider.github({
         clientId: 'aafa8cff268722e43d3d',
-        url: '/auth/github',
+        url: 'http://emanuelalenius.com/universitet/collaborate/auth/github',
         redirectUri: window.location.origin,
         optionalUrlParams: ['scope'],
         scope: ['user repo read:org write:org admin:org'],
