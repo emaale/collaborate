@@ -1,0 +1,125 @@
+<div class="conversation-wrapper col-md-8">
+	<div class="create-conversation box">
+		<h2>Create Project</h2>
+
+		<a data-ng-click="createProject()" href=""><span class="pull-right-icon icon-done"></span></a>
+
+		<form>
+			<div class="form-group">
+				<label>Name</label>
+				<input data-ng-model="name" type="text" placeholder="Name" class="form-control" name="">
+			</div>
+
+			<div class="form-group">
+				<label>Repository</label>
+				<input data-ng-model="repoSearch" data-ng-change="getRepos()" type="text" placeholder="URL" class="form-control" name="">
+
+				<ul data-ng-show="repoSearch" class="search-overlay list-view" data-ng-scrollbars>
+					<li data-ng-show="repos.loading">
+						<div class="spinner-wrapper">
+						   <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+						      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+						   </svg>   
+						</div>
+					</li>
+
+					<li ng-repeat="repo in repos.content | filter:repoSearch" data-ng-click="selectRepo(repo)">
+						<div class="conversation-type group">
+							<span>R</span>
+						</div>
+
+						<span class="username">{{ repo.full_name }}</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="form-group">
+				<label>Team</label>
+				<input data-ng-model="teamSearch" data-ng-change="searchTeams()" type="text" placeholder="Team" class="form-control" name="">
+
+				<ul data-ng-show="teamSearch" class="search-overlay list-view" data-ng-scrollbars>
+					<li data-ng-show="searchedTeams.loading">
+						<div class="spinner-wrapper">
+						   <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+						      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+						   </svg>   
+						</div>
+					</li>
+
+					<li ng-repeat="team in searchedTeams.content | filter:teamSearch" data-ng-click="selectTeam(team)">
+						<div class="conversation-type group">
+							<span>T</span>
+						</div>
+
+						<span class="username">{{ team.name }}</span>
+
+						<p class="bottom-right">{{ team.description }}</p>
+					</li>
+				</ul>
+			</div>
+
+			<div class="form-group">
+				<label>User</label>
+				<input data-ng-model="userSearch" data-ng-change="searchUsers(userSearch)" type="text" placeholder="User" class="form-control" name="">
+
+				<ul data-ng-show="userSearch" class="search-overlay list-view" data-ng-scrollbars>
+					<li data-ng-show="searchedUsers.loading">
+						<div class="spinner-wrapper">
+						   <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+						      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+						   </svg>   
+						</div>
+					</li>
+
+					<li ng-repeat="user in searchedUsers.content | filter:userSearch" data-ng-click="selectUser(user)">
+						<div class="conversation-type group">
+							<img data-ng-src="{{ user.avatar_url }}">
+						</div>
+
+						<span class="username">{{ user.display_name || user.name || user.login }}</span>
+
+						<p data-ng-show="user.isLinked" class="bottom-right">Collaborate User</p>
+					</li>
+				</ul>
+			</div>
+
+		</form>
+
+		<p ng-show="error.state" class="error">{{ error.message }}</p>
+
+		<div data-ng-show="added_repo" class="added-item">
+			<h2>Added Repository</h2>
+
+			<ul class="scroll-wrapper list-view">
+
+				<li data-ui-sref="userLookup({ userId: member.id })">
+					<div class="conversation-type group">
+						<span>R</span>
+					</div>
+
+					<span class="username">{{ added_repo.full_name }}</span>
+				</li>
+
+			</ul>
+		</div>
+
+		<div data-ng-show="added_users.length > 0" class="added-items">
+			<h2>Added Users</h2>
+
+			<ul class="scroll-wrapper list-view">
+
+				<li data-ui-sref="userLookup({ userId: member.id })" ng-repeat="user in added_users">
+					<div class="conversation-type group">
+						<img data-ng-src="{{ user.avatar_url }}">
+					</div>
+
+					<span class="username">{{ user.display_name || user.name || user.login }}</span>
+
+					<p data-ng-show="user.isLinked" class="bottom-right">Collaborate User</p>
+				</li>
+
+			</ul>
+		</div>
+
+	</div>		
+</div>	

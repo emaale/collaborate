@@ -1,0 +1,30 @@
+<div class="deadline-page col-md-9">
+   <div class="box">
+      <h2>Deadlines <a ui-sref="createDeadline" href=""><span class="icon-add_circle pull-right-icon"></span></a></h2>
+
+      <ul class="list-view" data-ng-scrollbars>
+         <li data-ng-show="deadlineData.loading" class="spinner-list-item">
+            <div class="spinner-wrapper">
+               <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+               </svg>   
+            </div>
+         </li>
+
+         <li data-ui-sref="deadline({ deadlineId: deadline.id })" data-ng-repeat="deadline in deadlineData.content">
+            <div class="conversation-type group">
+               <span>D</span>
+            </div>
+            
+            <span class="username">{{ deadline.name }}</span>
+
+            <p class="bottom-right">{{ deadline.deadline_date | date }}</p>
+         </li>
+
+         <li ng-hide="deadlineData.content.length > 0 || deadlineData.loading" class="empty">
+            <p>You have no deadlines connected to projects you are involved in.</p>
+         </li>
+      </ul>
+
+   </div>
+</div>

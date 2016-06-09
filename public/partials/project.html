@@ -1,0 +1,37 @@
+<div class="col-md-9">
+	<div class="box">
+		<h2>
+			{{ project.content.name }} / Documentation 
+
+			<a href="" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><span class="pull-right-icon icon-more_vert"></span></a>
+
+			<ul class="dropdown-menu">
+				<li><a ui-sref="conversationParticipants({ conversationId: 2 })" href="">GitHub Link</a></li>
+				<li class="divider"></li>
+				<li><a ui-sref="conversationParticipants({ conversationId: 2 })" href="">Start Chat</a></li>
+			</ul>
+		</h2>
+
+		<div data-ng-show="projectData.loading" class="spinner-wrapper">
+			<svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+				<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+			</svg>   
+		</div>
+
+		<div data-ng-hide="projectData.loading" class="content" ng-bind-html="projectData.content.content">
+			
+		</div>
+
+	</div>
+</div>
+
+<div class="col-md-3">
+	<div class="box project-navigation">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a data-ui-sref="project({ projectId: project.content.id })" class="active" href="">Documentation</a></li>
+			<li><a data-ui-sref="projectCommits({ projectId: project.content.id })" href="">Commits</a></li>
+			<li><a data-ui-sref="projectCollaborators({ projectId: project.content.id })" href="">Collaborators</a></li>
+			<li><a data-ui-sref="projectDeployment({ projectId: project.content.id })" href="">Deploy</a></li>
+		</ul>
+	</div>
+</div>

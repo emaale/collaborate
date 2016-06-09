@@ -1,0 +1,67 @@
+<div class="conversation-wrapper col-md-8">
+	<div class="create-conversation box">
+		<h2>Create Team</h2>
+
+		<a data-ng-click="createTeam()" href=""><span class="pull-right-icon icon-done"></span></a>
+
+		<form>
+			<div class="form-group">
+				<label>Name</label>
+				<input ng-model="name" type="text" placeholder="Name" class="form-control" name="" required>
+			</div>
+
+			<div class="form-group">
+				<label>Organization</label>
+				<input data-ng-model="organizationSearch" type="text" placeholder="Organization" class="form-control" name="organization">
+
+				<ul data-ng-show="organizationSearch" data-ng-init="getSearchableOrgs();" class="search-overlay list-view">
+
+					<li data-ng-show="searchableOrgs.loading" class="spinner-list-item">
+						<div class="spinner-wrapper">
+						   <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+						      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+						   </svg>   
+						</div>
+					</li>
+
+					<li data-ng-repeat="org in searchableOrgs.content | filter:organizationSearch as filtered"  data-ng-click="selectOrg(org)" data-ng-hide="searchedOrgs.loading">
+						<div class="conversation-type group">
+							<img data-ng-src="{{ org.organization.avatar_url }}">
+						</div>
+
+						<span class="username">{{ org.organization.login }}</span>
+
+						<p data-ng-show="member.isLinked" class="bottom-right">Collaborate User</p>
+					</li>
+
+					<li data-ng-hide="filtered.length > 0 || searchableOrgs.loading">
+						<p>You are not a member of an organization with that name</p>
+					</li>
+
+				</ul>
+			</div>
+
+		</form>
+
+		<p ng-show="error.status" class="error">{{ error.message }}</p>
+
+		<!-- Displayed when the organization is added -->
+		<div data-ng-show="added_items.length > 0" class="added-items">
+			<h2>Added Organization</h2>
+
+			<ul class="scroll-wrapper list-view">
+
+				<li ng-repeat="added_item in added_items">
+					<div class="conversation-type group">
+						{{ org.avatar_url }}
+						<img data-ng-src="{{ added_item.organization.avatar_url }}">
+					</div>
+
+					<span class="username">{{ added_item.organization.login }}</span>
+				</li>
+
+			</ul>
+		</div>
+		
+	</div>		
+</div>	

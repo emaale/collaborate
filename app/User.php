@@ -5,14 +5,21 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
-{
+{   
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'displayName', 'email', 'github', 'githubLogin',
     ];
 
     /**
@@ -21,6 +28,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        
     ];
+
+    /**
+     * The projects that belong to the user.
+     */
+    public function projects()
+    {
+        return $this->belongsToMany('App\Project');
+    }
 }

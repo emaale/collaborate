@@ -1,0 +1,67 @@
+<div class="col-md-9">
+	<div class="box">
+		<h2>
+			{{ project.content.name }} / Deploy 
+
+			<a href="" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><span class="pull-right-icon icon-more_vert"></span></a>
+
+			<ul class="dropdown-menu">
+				<li><a ui-sref="conversationParticipants({ conversationId: 2 })" href="">GitHub Link</a></li>
+				<li class="divider"></li>
+				<li><a ui-sref="conversationParticipants({ conversationId: 2 })" href="">Start Chat</a></li>
+			</ul>
+		</h2>
+
+		<form>
+			<p>Deploy project using SSH. Note: The Repository needs to be initialized or cloned before you deploy.</p>
+
+			<div class="form-group">
+				<label>Host</label>
+				<input data-ng-model="host" type="text" placeholder="Host" class="form-control" name="">
+			</div>
+
+			<div class="form-group">
+				<label>Username</label>
+				<input data-ng-model="username" type="text" placeholder="Username" class="form-control" name="">
+			</div>
+
+			<div class="form-group">
+				<label>Password</label>
+				<input data-ng-model="password" type="password" placeholder="Password" class="form-control" name="">
+			</div>
+
+			<div class="form-group">
+				<label>Directory</label>
+				<input data-ng-model="directory" type="text" placeholder="Directory" class="form-control" name="">
+			</div>
+
+			<div data-ng-show="loading" class="spinner-wrapper">
+				<svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+					<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+				</svg>   
+			</div>
+
+			<div data-ng-show="error.state" class="error">
+				<p>{{ error.message }}</p>	
+			</div>
+			
+			<div data-ng-show="success.state" class="success">
+				<p>{{ success.message }}</p>	
+			</div>
+
+			<button data-ng-click="deploy()" class="btn-default">Deploy</button>
+		</form>
+
+	</div>
+</div>
+
+<div class="col-md-3">
+	<div class="box project-navigation">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a data-ui-sref="project({ projectId: project.content.id })" href="">Documentation</a></li>
+			<li><a data-ui-sref="projectCommits({ projectId: project.content.id })" href="">Commits</a></li>
+			<li><a data-ui-sref="projectCollaborators({ projectId: project.content.id })" href="">Collaborators</a></li>
+			<li><a data-ui-sref="projectDeployment({ projectId: project.content.id })" class="active" href="">Deploy</a></li>
+		</ul>
+	</div>
+</div>

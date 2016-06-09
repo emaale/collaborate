@@ -1,0 +1,46 @@
+.login-page {
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: $login-background-color;
+	position: absolute;
+
+	h1 {
+		font-family: 'Poiret One', cursive;
+		font-size: $login-heading-size;
+		text-align: center;
+		margin-top: 100px;
+		margin-bottom: 10px;
+		color: $login-heading-color;
+	}
+
+	p {
+		font-family: 'Poiret One', cursive;
+		font-size: 22px;
+		margin: 0 auto 40px auto;
+		text-align: center;
+		color: white;
+	}
+
+	.login-button {
+		@extend .box;
+
+		padding: $box-padding;
+		max-width: 250px;
+		margin: 0 auto;
+		background: rgba(255, 255, 255, .8);
+		text-decoration: none;
+		color: black;
+
+		:first-child {
+			font-size: 32px;
+		}
+
+		:last-child {
+			padding-top: 5px;
+			float: right;
+		}
+	}	
+}
+

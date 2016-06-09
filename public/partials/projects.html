@@ -1,0 +1,27 @@
+<div class="col-md-9">
+   <div class="box">
+      <h2>Projects <a ui-sref="createProject" href=""><span class="pull-right-icon icon-add_circle"></span></a></h2>
+
+      <ul class="list-view" data-ng-scrollbars>
+         <li data-ng-show="projectData.loading" class="spinner-list-item">
+            <div class="spinner-wrapper">
+               <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+               </svg>   
+            </div>
+         </li>
+
+         <li ng-repeat="project in projectData.content" ui-sref="project({ projectId: project.id })">
+            <div class="conversation-type group">
+               <span>P</span>
+            </div>
+            
+            <span class="username">{{ project.name }}</span>
+         </li>
+
+         <li ng-hide="projectData.content.length > 0 || projectData.loading" class="empty">
+            <p>You are currently not linked to any projects.</p>
+         </li>
+      </ul>
+   </div>
+</div>

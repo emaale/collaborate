@@ -1,0 +1,66 @@
+<div class="conversation-wrapper col-md-8">
+	<div class="create-conversation box">
+		<h2>Create Deadline</h2>
+
+		<a data-ng-click="createDeadline()" href=""><span class="pull-right-icon icon-done"></span></a>
+
+		<form>
+			<div class="form-group">
+				<label>Name</label>
+				<input data-ng-model="name" type="text" placeholder="Name" class="form-control" name="">
+			</div>
+
+			<div class="form-group">
+				<label>Project</label>
+				<input data-ng-model="projectSearch" data-ng-init="getProjects()" type="text" placeholder="Project" class="form-control" name="">
+
+				<ul data-ng-show="projectSearch" class="search-overlay list-view" data-ng-scrollbars>
+					<li data-ng-show="projects.loading">
+						<div class="spinner-wrapper">
+						   <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+						      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+						   </svg>   
+						</div>
+					</li>
+
+					<li ng-repeat="project in projects.content | filter:projectSearch" data-ng-click="selectProject(project)">
+						<div class="conversation-type group">
+							<span>P</span>
+						</div>
+
+						<span class="username">{{ project.name }}</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="form-group">
+				<label>Date</label>
+				<input data-ng-model="date" type="text" id="date" placeholder="Date" class="form-control" name="">
+			</div>
+
+			<script type="text/javascript">
+				$('#date').bootstrapMaterialDatePicker({ setDate: moment(), minDate : new Date(), time: false });
+			</script>
+		</form>
+
+		<div ng-show="error.state" class="error">
+			<p>{{ error.message }}</p>
+		</div>
+
+		<div data-ng-show="added_project" class="added-item">
+			<h2>Added Project</h2>
+
+			<ul class="scroll-wrapper list-view">
+
+				<li data-ui-sref="project({ projectId: added_project.id })">
+					<div class="conversation-type group">
+						<span>P</span>
+					</div>
+
+					<span class="username">{{ added_project.name }}</span>
+				</li>
+
+			</ul>
+		</div>
+	</div>		
+</div>	

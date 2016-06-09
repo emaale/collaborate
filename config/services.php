@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'github' => [
+        'client_id' => 'aafa8cff268722e43d3d',
+        'client_secret' => '620178239eaee855f58b81bdc299a8a0121a38f5',
+        'redirect' => 'http://collaborate.dev',
+    ],
+
 ];

@@ -1,0 +1,95 @@
+<div class="col-md-9">
+	<div class="box">
+		<h2>
+			{{ project.content.name }} / Collaborators <span data-ng-show="projectData.content.length > 0">({{ projectData.content.length }})</span>
+
+			<a href="" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><span class="pull-right-icon icon-more_vert"></span></a>
+
+			<ul class="dropdown-menu">
+				<li><a ui-sref="conversationParticipants({ conversationId: 2 })" href="">GitHub Link</a></li>
+				<li class="divider"></li>
+				<li><a ui-sref="conversationParticipants({ conversationId: 2 })" href="">Start Chat</a></li>
+			</ul>
+		</h2>
+
+		<input data-ng-model="userSearch" data-ng-change="searchUsers(userSearch)" type="text" placeholder="Search users to add..." class="wide-search" name="">
+
+		<ul data-ng-scrollbars data-ng-show="userSearch" class="search-overlay list-view">
+
+			<li data-ng-show="searchedUsers.loading" class="spinner-list-item">
+				<div class="spinner-wrapper">
+				   <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+				      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+				   </svg>   
+				</div>
+			</li>
+
+			<li data-ng-repeat="user in searchedUsers.content | filter:userSearch as filtered"  data-ng-click="selectUser(user)" data-ng-hide="searchedUsers.loading">
+				<div class="conversation-type group">
+					<img data-ng-src="{{ user.avatar_url }}">
+				</div>
+
+				<span class="username">{{ user.name || user.login }}</span>
+			</li>
+
+			<li data-ng-hide="filtered.length > 0 || searchedUsers.loading">
+				<p>Can't find a user matching that criteria.</p>
+			</li>
+
+		</ul>
+
+		<ul class="scroll-wrapper list-view">
+
+			<li data-ng-show="projectData.loading" class="spinner-list-item">
+				<div class="spinner-wrapper">
+				   <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+				      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+				   </svg>   
+				</div>
+			</li>
+
+			<li ng-repeat="collaborator in projectData.content">
+				<div class="conversation-type group">
+					<img data-ng-src="{{ collaborator.avatar_url }}">
+				</div>
+
+				<div class="btn-group" role="group" aria-label="Basic example">
+				  <button type="button" class="btn btn-primary" ng-class="{'active': collaborator.permissions.admin == false}">Member</button>
+				  <button type="button" class="btn btn-primary" ng-class="{'active': collaborator.permissions.admin == true}">Admin</button>
+				</div>
+
+				<span class="username">{{  collaborator.login }}</span>
+				
+			</li>
+
+		</ul>
+
+		<div data-ng-show="added_users.length > 0" class="added-items">
+			<h2>Added Collaborators</h2>
+
+			<ul class="scroll-wrapper list-view">
+
+				<li data-ui-sref="userLookup({ userId: user.id })" ng-repeat="user in added_users">
+					<div class="conversation-type group">
+						<img data-ng-src="{{ user.avatar_url }}">
+					</div>
+
+					<span class="username">{{ user.name || user.login }}</span>
+				</li>
+
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+<div class="col-md-3">
+	<div class="box project-navigation">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a data-ui-sref="project({ projectId: project.content.id })" href="">Documentation</a></li>
+			<li><a data-ui-sref="projectCommits({ projectId: project.content.id })" href="">Commits</a></li>
+			<li><a data-ui-sref="projectCollaborators({ projectId: project.content.id })" class="active" href="">Collaborators</a></li>
+			<li><a data-ui-sref="projectDeployment({ projectId: project.content.id })" href="">Deploy</a></li>
+		</ul>
+	</div>
+</div>

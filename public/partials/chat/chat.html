@@ -1,0 +1,39 @@
+<div class="chat row">
+	<div class="conversations-wrapper col-md-4">
+		<div class="conversations">
+			<h2>Conversations <a ui-sref="createConversation()" href=""><span class="pull-right-icon icon-add_circle"></span></a></h2>
+
+			<a ui-sref="createConversation()" href=""><span class="pull-right-icon icon-add_circle"></span></a>
+
+			<ul class="list-view scroll-wrapper" ng-scrollbars>
+				<li data-ng-show="conversations.loading" class="spinner-list-item">
+					<div class="spinner-wrapper">
+					   <svg class="spinner" width="35px" height="35px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+					      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+					   </svg>   
+					</div>
+				</li>
+
+				<li data-ui-sref="conversation({ conversationId: conversation.id })" data-ui-sref="userLookup({ userId: member.id })" ng-repeat="conversation in conversations.content">
+					<div class="conversation-type group">
+						<span data-ng-show="conversation.users.length > 2">G</span>
+
+						<img data-ng-show="conversation.users.length <= 2" data-ng-src="{{ 'https://avatars.githubusercontent.com/u/' + conversation.users[1].github }}">
+					</div>
+
+					<span data-ng-show="conversation.users.length > 2" class="username">{{ conversation.name }}</span>
+					<span data-ng-hide="conversation.users.length > 2" class="username">{{ conversation.users[1].displayName }}</span>
+				</li>
+
+				<li data-ng-hide="conversations.content.length > 0">No conversations</li>
+			</ul>
+			
+		</div>
+	</div>
+
+	<div class="conversation-wrapper col-md-8">
+		<div class="conversation">
+			<p class="empty with-padding">Choose a conversation from the left or create a new one, to start chatting </p>
+		</div>		
+	</div>	
+</div>
