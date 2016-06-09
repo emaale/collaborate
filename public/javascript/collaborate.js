@@ -58,7 +58,7 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/login',
             views: {
                 'page': {
-                    templateUrl: '/partials/login.html',
+                    templateUrl: 'partials/login.html',
                     controller: 'AuthCtrl',
                 }
             },
@@ -68,11 +68,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/user',
             views: {
                 'page': {
-                    templateUrl: '/partials/user.html',
+                    templateUrl: 'partials/user.html',
                     controller: 'UserCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -82,11 +82,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/users/:userId',
             views: {
                 'page': {
-                    templateUrl: '/partials/user-lookup.html',
+                    templateUrl: 'partials/user-lookup.html',
                     controller: 'UserCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -96,11 +96,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/teams',
             views: {
                 'page': {
-                    templateUrl: '/partials/teams.html',
+                    templateUrl: 'partials/teams.html',
                     controller: 'TeamCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -116,11 +116,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/teams/new',
             views: {
                 'page': {
-                    templateUrl: '/partials/team-create.html',
+                    templateUrl: 'partials/team-create.html',
                     controller: 'TeamCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -136,11 +136,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/teams/:teamId',
             views: {
                 'page': {
-                    templateUrl: '/partials/team.html',
+                    templateUrl: 'partials/team.html',
                     controller: 'TeamCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -158,11 +158,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/teams/:team/members/:user',
             views: {
                 'page': {
-                    templateUrl: '/partials/teamMember.html',
+                    templateUrl: 'partials/teamMember.html',
                     controller: 'TeamCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -178,11 +178,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/projects',
             views: {
                 'page': {
-                    templateUrl: '/partials/projects.html',
+                    templateUrl: 'partials/projects.html',
                     controller: 'ProjectCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -202,11 +202,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/projects/new',
             views: {
                 'page': {
-                    templateUrl: '/partials/project-create.html',
+                    templateUrl: 'partials/project-create.html',
                     controller: 'ProjectCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -224,11 +224,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/projects/:projectId',
             views: {
                 'page': {
-                    templateUrl: '/partials/project.html',
+                    templateUrl: 'partials/project.html',
                     controller: 'ProjectCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -250,11 +250,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/projects/:projectId/commits',
             views: {
                 'page': {
-                    templateUrl: '/partials/project-commits.html',
+                    templateUrl: 'partials/project-commits.html',
                     controller: 'ProjectCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -276,11 +276,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/projects/:projectId/collaborators',
             views: {
                 'page': {
-                    templateUrl: '/partials/project-collaborators.html',
+                    templateUrl: 'partials/project-collaborators.html',
                     controller: 'ProjectCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -304,11 +304,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/projects/:projectId/deploy',
             views: {
                 'page': {
-                    templateUrl: '/partials/project-deployment.html',
+                    templateUrl: 'partials/project-deployment.html',
                     controller: 'ProjectCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -328,11 +328,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/deadlines',
             views: {
                 'page': {
-                    templateUrl: '/partials/deadlines.html',
+                    templateUrl: 'partials/deadlines.html',
                     controller: 'DeadlineCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -349,11 +349,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/deadlines/new',
             views: {
                 'page': {
-                    templateUrl: '/partials/deadline-create.html',
+                    templateUrl: 'partials/deadline-create.html',
                     controller: 'DeadlineCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -368,11 +368,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/deadlines/:deadlineId',
             views: {
                 'page': {
-                    templateUrl: '/partials/deadline.html',
+                    templateUrl: 'partials/deadline.html',
                     controller: 'DeadlineCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -391,11 +391,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/chat',
             views: {
                 'page': {
-                    templateUrl: '/partials/chat/chat.html',
+                    templateUrl: 'partials/chat/chat.html',
                     controller: 'ChatCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -416,11 +416,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/chat/conversations/new',
             views: {
                 'page': {
-                    templateUrl: '/partials/chat/conversation-create.html',
+                    templateUrl: 'partials/chat/conversation-create.html',
                     controller: 'ChatCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -441,11 +441,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/chat/conversations/:conversationId',
             views: {
                 'page': {
-                    templateUrl: '/partials/chat/conversation.html',
+                    templateUrl: 'partials/chat/conversation.html',
                     controller: 'ChatCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
@@ -467,11 +467,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$authProvider', 'ScrollBarsP
             url: '/chat/conversations/:conversationId/participants',
             views: {
                 'page': {
-                    templateUrl: '/partials/chat/conversation-participants.html',
+                    templateUrl: 'partials/chat/conversation-participants.html',
                     controller: 'ChatCtrl',
                 },
                 'header': {
-                    templateUrl: '/partials/header.html',
+                    templateUrl: 'partials/header.html',
                     controller: 'NavCtrl',
                 }
             },
