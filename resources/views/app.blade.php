@@ -23,23 +23,23 @@
 	<script src="//cdn.jsdelivr.net/satellizer/0.12.5/satellizer.min.js"></script>
 
 	<!-- Collaborate Application -->
-	<script type="text/javascript" src="/javascript/collaborate.js"></script>
+	<script type="text/javascript" src="javascript/collaborate.js"></script>
 
 	<!-- Services -->
-	<script type="text/javascript" src="/javascript/services/UserService.js"></script>
-	<script type="text/javascript" src="/javascript/services/TeamService.js"></script>
-	<script type="text/javascript" src="/javascript/services/ChatService.js"></script>
-	<script type="text/javascript" src="/javascript/services/ProjectService.js"></script>
-	<script type="text/javascript" src="/javascript/services/DeadlineService.js"></script>
+	<script type="text/javascript" src="javascript/services/UserService.js"></script>
+	<script type="text/javascript" src="javascript/services/TeamService.js"></script>
+	<script type="text/javascript" src="javascript/services/ChatService.js"></script>
+	<script type="text/javascript" src="javascript/services/ProjectService.js"></script>
+	<script type="text/javascript" src="javascript/services/DeadlineService.js"></script>
 
 	<!-- Controllers -->
-	<script type="text/javascript" src="/javascript/controllers/AuthCtrl.js"></script>
-	<script type="text/javascript" src="/javascript/controllers/NavCtrl.js"></script>
-	<script type="text/javascript" src="/javascript/controllers/UserCtrl.js"></script>
-	<script type="text/javascript" src="/javascript/controllers/TeamCtrl.js"></script>
-	<script type="text/javascript" src="/javascript/controllers/ProjectCtrl.js"></script>
-	<script type="text/javascript" src="/javascript/controllers/DeadlineCtrl.js"></script>
-	<script type="text/javascript" src="/javascript/controllers/ChatCtrl.js"></script>
+	<script type="text/javascript" src="javascript/controllers/AuthCtrl.js"></script>
+	<script type="text/javascript" src="javascript/controllers/NavCtrl.js"></script>
+	<script type="text/javascript" src="javascript/controllers/UserCtrl.js"></script>
+	<script type="text/javascript" src="javascript/controllers/TeamCtrl.js"></script>
+	<script type="text/javascript" src="javascript/controllers/ProjectCtrl.js"></script>
+	<script type="text/javascript" src="javascript/controllers/DeadlineCtrl.js"></script>
+	<script type="text/javascript" src="javascript/controllers/ChatCtrl.js"></script>
 
 </head>
 <body data-ng-app="collaborateApp">
